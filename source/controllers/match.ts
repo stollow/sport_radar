@@ -24,11 +24,11 @@ const getMatches = async ():Promise<match[]> => {
             date.setHours(parseInt(hoursData[0]))
             date.setMinutes(parseInt(hoursData[1]))
             matches.push(new match(data._id,data._doc,data.teams.away.name,
-                data.teams.home.name,date,data.result.home,data.result.away,data.comment,element._id))
+                data.teams.home.name,date,data.result.home,data.result.away,data.comment,element._id, data.time.uts))
             matches = matches.filter((a) => Date.now() > a.fullDate.getTime())
             matches.sort((a,b)=> b.fullDate.getTime() - a.fullDate.getTime())
             matches = matches.slice(0,5)
-            matches.sort((a,b)=> b.tournamentId - a.tournamentId)
+            matches.sort((a,b)=> b.tournamentId - a.tournamentId & b.timeplay - a.timeplay)
         })
     })
     return matches

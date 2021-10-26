@@ -9,14 +9,14 @@ export class tournament {
     }
 }
 
-export class apiTournamentObject{
+export class apiTournamentsObject{
     doc!:[{
         data:{
             tournaments:tournament[]
-            uniquetournaments: { [x: string]: any; }
+            uniquetournaments: { [x: string]: tournament; }
         }
     }]
 }
 
 
-export default {tournament,apiTournamentObject}
+export default {tournament,apiTournamentsObject}

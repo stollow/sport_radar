@@ -1,5 +1,4 @@
 import http from "http";
-import bodyParser from "body-parser";
 import express from "express";
 import logging from "./config/logging";
 import config from "./config/config";
@@ -26,10 +25,6 @@ router.use((req, res, next) => {
 
   next();
 });
-
-/** Parse the body of the request */
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
 
 /** Rules of our API */
 router.use((req, res, next) => {

@@ -9,7 +9,7 @@ let matches:match[] = []
 let tournamentList: tournament[] = []
 
 const getMatches = async ():Promise<match[]> => {
-    console.log("Request for matches ...")
+  console.log("Request for matches ...")
   try {
     tournamentList = await getTournament.getTournament()
     await tournamentList.forEach( async element => {

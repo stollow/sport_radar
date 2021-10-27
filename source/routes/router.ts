@@ -4,37 +4,39 @@ import getMatches from '../controllers/match';
 import { tournament } from '../models/tournamentModel';
 import { match } from '../models/matchModel';
 
-const router = express.Router();
+const app = express()
 
 let tournaments: tournament[] = []
 let matches: match[] = []
-router.get('/tournaments', async (req, res, next) =>{
+app.get('/tournaments', async (req, res, next) =>{
     console.log("fetching...")
     try{
         tournaments = await getTournament.getTournament()
         res.status(200).send(tournaments)
 
     }catch(error){
-        console.log(error)
-        res.status(500).send(error)
+        res.status(500).json({
+            message: error,
+          });
     }
 
 
 });
 
-router.get('/matches', async (req, res, next) =>{
+app.get('/matches', async (req, res, next) =>{
     console.log("fetching...")
     try{
         matches = await getMatches.getMatches()
         res.status(200).send(matches)
 
     }catch(error){
-        console.log(error)
-        res.status(500).send(error)
+        res.status(500).json({
+            message: error,
+          });
     }
 
 
 });
 
 
-export = router;
+export = app;

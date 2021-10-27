@@ -10,10 +10,9 @@ let tournamentList: tournament[] = []
 
 const getMatches = async ():Promise<match[]> => {
   console.log("Request for matches ...")
-  try {
-    tournamentList = await getTournament.getTournament()
+    tournamentList = await getTournament.getTournament().catch(e => {throw e})
     await tournamentList.forEach( async element => {
-        data = await requestMatches.requestMatches(element._id)
+        data = await requestMatches.requestMatches(element._id).catch(e => {throw e})
         apiObject = Object.assign(new apiMatchesObject(),data)
         Object.keys(apiObject.doc[0].data.matches).forEach(function(keys){
             let data = apiObject.doc[0].data.matches[keys]
@@ -32,12 +31,6 @@ const getMatches = async ():Promise<match[]> => {
         })
     })
     return matches
-  }
-  catch(error){
-    Promise.reject()
-    console.log(error)
-    return []
-  }
 
 };
 

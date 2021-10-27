@@ -19,7 +19,7 @@ const getTournament = async (): Promise<tournament[]> => {
   }
   catch(error){
     console.log(error)
-    return []
+    throw(error)
   }
 };
 

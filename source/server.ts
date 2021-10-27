@@ -48,7 +48,6 @@ router.use("/api", routerService);
 /** Error handling */
 router.use((req, res, next) => {
   const error = new Error("Not found");
-
   res.status(404).json({
     message: error.message,
   });

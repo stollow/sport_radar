@@ -4,15 +4,16 @@
 
 to start the project install node dependencies by running 
 
-```nodeJS
+```bash
 npm i
+```
 
 
 ##launch the project
 
-```nodeJS
+```bash
 nodemon source/server.ts
-
+```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

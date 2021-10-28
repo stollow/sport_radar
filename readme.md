@@ -1,6 +1,6 @@
-#SportRadar
+# SportRadar
 
-##Installation
+## Installation
 
 to start the project install node dependencies by running 
 
@@ -9,7 +9,7 @@ npm i
 ```
 
 
-##launch the project
+## launch the project
 
 ```bash
 nodemon source/server.ts
